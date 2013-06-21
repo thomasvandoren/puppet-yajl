@@ -53,7 +53,7 @@ class yajl (
   }
 
   exec { 'unpack-yajl':
-    command => "tar --strip-components 1 -xzf ${yajl_pkg}",
+    command => "tar --strip-components 1 --extract --gzip --file ${yajl_pkg} --directory ${yajl_src_dir}",
     cwd     => $yajl_src_dir,
     path    => '/bin:/usr/bin',
     creates => "${yajl_src_dir}/configure",
