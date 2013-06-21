@@ -25,13 +25,13 @@
 # Copyright 2013 Thomas Van Doren, unless otherwise noted
 #
 class yajl (
-  $version      = '2.0.1'
+  $version      = '2.0.1',
   $yajl_src_dir = '/opt/yajl-src',
   $yajl_bin_dir = '/usr/local',
   ) {
   include wget
 
-  $yajl_pkg_name = "${version}.tar.gz}"
+  $yajl_pkg_name = "${version}.tar.gz"
   $yajl_pkg = "${yajl_src_dir}/${yajl_pkg_name}"
   File {
     owner => 'root',
@@ -63,6 +63,7 @@ class yajl (
   exec { 'configure-yajl':
     command => "ruby configure --prefix ${yajl_bin_dir}",
     cwd     => $yajl_src_dir,
+    path    => '/bin:/usr/bin',
     creates => "${yajl_src_dir}/Makefile",
     require => [ Exec['unpack-yajl'], Package['cmake'] ],
   }
@@ -70,6 +71,7 @@ class yajl (
   exec { 'install-yajl':
     command => "make && make install PREFIX=${yajl_bin_dir}",
     cwd     => $yajl_src_dir,
+    path    => '/bin:/usr/bin',
     creates => "${yajl_bin_dir}/lib/libyajl.so",
     require => Exec['configure-yajl'],
   }
