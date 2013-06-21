@@ -1,7 +1,7 @@
 YAJL puppet module
 ==================
 
-Install and configure Yet Another JSON Library (yajl) on a linux system.
+Install and configure Yet Another JSON Library (yajl).
 
 [![Build Status](https://secure.travis-ci.org/thomasvandoren/puppet-yajl.png?branch=master)](https://travis-ci.org/thomasvandoren/puppet-yajl)
 
