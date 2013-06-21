@@ -1,0 +1,7 @@
+name         'thomasvandoren-yajl'
+version      '0.0.1'
+summary      'Install and configure yajl.'
+description  'Install and configure yajl.'
+author       'Thomas Van Doren'
+license      'BSD'
+project_page 'https://github.com/thomasvandoren/puppet-yajl'
